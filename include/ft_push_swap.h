@@ -18,7 +18,7 @@
 int		is_empty(t_stack *top);
 void	push(t_stack **top, int content);
 int		pop(t_stack **top);
-int 	peak(t_stack *top);
+int		peak(t_stack *top);
 void	ft_print_stack(t_stack	*top);
 
 #endif

@@ -12,18 +12,87 @@
 
 #include "../include/ft_push_swap.h"
 
-void	ft_print_stack(t_stack *top)
+static int	ft_num_len(int content)
 {
-	if (!top)
+	int	len;
+
+	len = 0;
+	if (content < 0)
 	{
-		ft_printf("|    |\n------\n");
-		return ;
+		content *= -1;
+		len++;
 	}
+	while (content)
+	{
+		content /= 10;
+		len++;
+	}
+	return (len);
+}
+
+static int	ft_max_len(t_stack *top)
+{
+	int	max_len;
+	int	content_len;
+
+	max_len = ft_num_len(top->content);
+	top = top->next;
 	while (top)
 	{
-		ft_printf("| %d |\n", top->content);
+		content_len = ft_num_len(top->content);
+		if (content_len > max_len)
+			max_len = content_len;
 		top = top->next;
-		if (!top)
-			ft_printf("------\n");
 	}
+	return (max_len);
+}
+
+static void	ft_print_bottom(int max_len)
+{
+	int	i;
+
+	i = 0;
+	ft_printf("--");
+	while (i < max_len)
+	{
+		ft_printf("-");
+		i++;
+	}
+	ft_printf("--\n");
+}
+
+static void	ft_print_right_wall(int max_len, int content)
+{
+	int	i;
+	int	n;
+	int	content_len;
+
+	i = 0;
+	content_len = ft_num_len(content);
+	n = max_len - content_len;
+	while (i < n)
+	{
+		ft_printf(" ");
+		i++;
+	}
+	ft_printf(" |\n");
+}
+
+void	ft_print_stack(t_stack *top)
+{
+	int	max_len;
+
+	if (!top)
+	{
+		ft_printf("|   |\n-----\n");
+		return ;
+	}
+	max_len = ft_max_len(top);
+	while (top)
+	{
+		ft_printf("| %d", top->content);
+		ft_print_right_wall(max_len, top->content);
+		top = top->next;
+	}
+	ft_print_bottom(max_len);
 }
