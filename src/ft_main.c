@@ -12,7 +12,7 @@
 
 #include "../include/ft_push_swap.h"
 
-int	main(int argc, char *argv[])
+int	main(void)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
