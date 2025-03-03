@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_utils.c                                         :+:      :+:    :+:   */
+/*   ft_print_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: armarake <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 00:24:35 by armarake          #+#    #+#             */
-/*   Updated: 2025/03/01 14:43:54 by armarake         ###   ########.fr       */
+/*   Updated: 2025/03/03 15:41:02 by armarake         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,13 +78,14 @@ static void	ft_print_right_wall(int max_len, int content)
 	ft_printf(" |\n");
 }
 
-void	ft_print_stack(t_stack *top)
+void	ft_print_stack(t_stack *top, char name)
 {
 	int	max_len;
 
 	if (!top)
 	{
 		ft_printf("|   |\n-----\n");
+		ft_printf("stack %c\n\n", name);
 		return ;
 	}
 	max_len = ft_max_len(top);
@@ -95,4 +96,5 @@ void	ft_print_stack(t_stack *top)
 		top = top->next;
 	}
 	ft_print_bottom(max_len);
+	ft_printf("stack %c\n\n", name);
 }

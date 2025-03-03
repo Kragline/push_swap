@@ -6,7 +6,7 @@
 /*   By: armarake <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 14:14:27 by armarake          #+#    #+#             */
-/*   Updated: 2025/03/01 14:50:22 by armarake         ###   ########.fr       */
+/*   Updated: 2025/03/03 15:45:32 by armarake         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	is_empty(t_stack *top)
 {
-	return (top == NULL);
+	return (ft_lstsize(top) == 0);
 }
 
 void	push(t_stack **top, int content)
@@ -41,7 +41,7 @@ int	pop(t_stack **top)
 	return (popped_value);
 }
 
-int peak(t_stack *top)
+int	peak(t_stack *top)
 {
 	if (is_empty(top))
 		return (0);

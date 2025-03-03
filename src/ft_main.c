@@ -6,7 +6,7 @@
 /*   By: armarake <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 00:01:02 by armarake          #+#    #+#             */
-/*   Updated: 2025/03/01 14:53:01 by armarake         ###   ########.fr       */
+/*   Updated: 2025/03/03 17:14:23 by armarake         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,27 +20,21 @@ int	main(void)
 	stack_a = ft_lstnew(1);
 	push(&stack_a, 200);
 	push(&stack_a, 30);
+	ft_print_stack(stack_a, 'a');
 
-	ft_print_stack(stack_a);
-	ft_printf("stack a\n\n");
+	stack_b = ft_lstnew(55);
+	push(&stack_b, 40);
+	ft_print_stack(stack_b, 'b');
 
-	ft_printf("peak element value : %d\n\n", peak(stack_a));
-	ft_printf("popped value : %d\n\n", pop(&stack_a));
-	ft_print_stack(stack_a);
-	ft_printf("stack a\n\n");
+	reverse_rotate_a(&stack_a);
+	ft_print_stack(stack_a, 'a');
 
-	ft_printf("peak element value : %d\n\n", peak(stack_a));
-
-	push(&stack_a, -5);
-	ft_printf("pushed to stack : -5\n\n");
-	ft_print_stack(stack_a);
-	ft_printf("stack a\n\n");
-
-	stack_b = NULL;
-	ft_print_stack(stack_b);
-	ft_printf("stack b\n\n");
+	reverse_rotate_ab(&stack_a, &stack_b);
+	ft_print_stack(stack_a, 'a');
+	ft_print_stack(stack_b, 'b');
 
 	ft_lstclear(&stack_a);
+	ft_lstclear(&stack_b);
 
 	return (0);
 }
