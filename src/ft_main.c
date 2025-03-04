@@ -6,7 +6,7 @@
 /*   By: armarake <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 00:01:02 by armarake          #+#    #+#             */
-/*   Updated: 2025/03/04 16:01:28 by armarake         ###   ########.fr       */
+/*   Updated: 2025/03/04 17:50:59 by armarake         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static void	initialize_stack(t_stack **stack, int argc, char *argv[])
 	}
 	while (args[i])
 	{
-		if (arg_is_valid(stack, args[i], argc, args) == 0)
+		if (!arg_is_valid(stack, args[i], argc, args))
 			ft_error(stack, argc, args);
 		push_back(stack, ft_atoi(args[i]));
 		i++;

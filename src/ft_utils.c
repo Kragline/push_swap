@@ -6,7 +6,7 @@
 /*   By: armarake <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 13:35:15 by armarake          #+#    #+#             */
-/*   Updated: 2025/03/04 16:00:07 by armarake         ###   ########.fr       */
+/*   Updated: 2025/03/04 17:54:51 by armarake         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,25 @@ static int	ft_atolli(t_stack **stack, char *arg, int argc, char *args[])
 	return ((int)(res * sign));
 }
 
+static int	is_all_number(char *arg)
+{
+	while (*arg)
+	{	
+		if (!ft_isdigit(*arg) && !(*arg == '+' || *arg == '-'))
+			return (0);
+		arg++;
+	}
+	return (1);
+}
+
 int	arg_is_valid(t_stack **stack, char *arg, int argc, char *args[])
 {
 	int		nbr;
 	int		count_of_nbr;
 	t_stack	*temp;
 
+	if (!is_all_number(arg))
+		ft_error(stack, argc, args);
 	nbr = ft_atolli(stack, arg, argc, args);
 	count_of_nbr = 0;
 	temp = *stack;
