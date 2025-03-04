@@ -6,7 +6,7 @@
 /*   By: armarake <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 14:14:27 by armarake          #+#    #+#             */
-/*   Updated: 2025/03/03 15:45:32 by armarake         ###   ########.fr       */
+/*   Updated: 2025/03/04 15:30:33 by armarake         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,16 @@ void	push(t_stack **top, int content)
 	if (!new_node)
 		return ;
 	ft_lstadd_front(top, new_node);
+}
+
+void	push_back(t_stack **top, int content)
+{
+	t_stack	*new_node;
+
+	new_node = ft_lstnew(content);
+	if (!new_node)
+		return ;
+	ft_lstadd_back(top, new_node);
 }
 
 int	pop(t_stack **top)

@@ -4,10 +4,10 @@ CC = cc
 
 CCFLAGS = -Wall -Wextra -Werror
 
-FILENAMES = main manipulate_stack print_utils swap push rotate reverse_rotate
+FILENAMES = main manipulate_stack print_utils swap push rotate reverse_rotate utils
 
-PREFIX_FILENAMES = $(addprefix src/ft_,$(FILENAMES))
-SRCS = $(addsuffix .c,$(PREFIX_FILENAMES))
+PREFIX_FILENAMES = $(addprefix src/ft_, $(FILENAMES))
+SRCS = $(addsuffix .c, $(PREFIX_FILENAMES))
 
 LIBFT = libft/libft.a
 
