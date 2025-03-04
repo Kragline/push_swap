@@ -6,7 +6,7 @@
 /*   By: armarake <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 13:35:15 by armarake          #+#    #+#             */
-/*   Updated: 2025/03/04 17:54:51 by armarake         ###   ########.fr       */
+/*   Updated: 2025/03/05 00:06:17 by armarake         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,8 @@ int	arg_is_valid(t_stack **stack, char *arg, int argc, char *args[])
 	if (!is_all_number(arg))
 		ft_error(stack, argc, args);
 	nbr = ft_atolli(stack, arg, argc, args);
+	if (nbr == 0)
+		ft_error(stack, argc, args);
 	count_of_nbr = 0;
 	temp = *stack;
 	while (temp)
