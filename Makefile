@@ -4,7 +4,8 @@ CC = cc
 
 CCFLAGS = -Wall -Wextra -Werror
 
-FILENAMES = main manipulate_stack print_utils swap push rotate reverse_rotate utils
+FILENAMES = main manipulate_stack print_utils swap push rotate reverse_rotate \
+			utils valid_utils sort
 
 PREFIX_FILENAMES = $(addprefix src/ft_, $(FILENAMES))
 SRCS = $(addsuffix .c, $(PREFIX_FILENAMES))

@@ -6,7 +6,7 @@
 /*   By: armarake <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 00:24:35 by armarake          #+#    #+#             */
-/*   Updated: 2025/03/03 15:41:02 by armarake         ###   ########.fr       */
+/*   Updated: 2025/03/08 01:02:48 by armarake         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ void	ft_print_stack(t_stack *top, char name)
 	max_len = ft_max_len(top);
 	while (top)
 	{
-		ft_printf("| %d", top->content);
+		ft_printf("| %d (%d)", top->content, top->index);
 		ft_print_right_wall(max_len, top->content);
 		top = top->next;
 	}

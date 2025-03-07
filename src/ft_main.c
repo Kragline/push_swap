@@ -6,11 +6,33 @@
 /*   By: armarake <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 00:01:02 by armarake          #+#    #+#             */
-/*   Updated: 2025/03/04 17:50:59 by armarake         ###   ########.fr       */
+/*   Updated: 2025/03/08 01:51:16 by armarake         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_push_swap.h"
+
+static void	give_indexes(t_stack *stack)
+{
+	int		index;
+	t_stack	*current;
+	t_stack	*temp_head;
+
+	temp_head = stack;
+	while (stack)
+	{
+		current = temp_head;
+		index = 0;
+		while (current)
+		{
+			if (stack->content > current->content)
+				index++;
+			current = current->next;
+		}
+		stack->index = index;
+		stack = stack->next;
+	}
+}
 
 static void	initialize_stack(t_stack **stack, int argc, char *argv[])
 {
@@ -32,6 +54,7 @@ static void	initialize_stack(t_stack **stack, int argc, char *argv[])
 		push_back(stack, ft_atoi(args[i]));
 		i++;
 	}
+	give_indexes(*stack);
 	if (argc == 2)
 		ft_free_tab(args);
 }
@@ -46,7 +69,8 @@ int	main(int argc, char *argv[])
 	stack_a = NULL;
 	stack_b = NULL;
 	initialize_stack(&stack_a, argc, argv);
-	ft_print_stack(stack_a, 'a');
+	if (!is_sorted(stack_a))
+		sort_stack(&stack_a, &stack_b);
 	ft_lstclear(&stack_a);
 	ft_lstclear(&stack_b);
 	return (0);

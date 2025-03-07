@@ -6,7 +6,7 @@
 /*   By: armarake <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 15:13:51 by armarake          #+#    #+#             */
-/*   Updated: 2025/03/03 15:46:05 by armarake         ###   ########.fr       */
+/*   Updated: 2025/03/08 01:40:59 by armarake         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,12 @@
 
 static int	push_from_to(t_stack **from, t_stack **to)
 {
+	int	index;
+
 	if (is_empty(*from))
 		return (0);
-	push(to, pop(from));
+	index = (*from)->index;
+	push(to, pop(from), index);
 	return (1);
 }
 

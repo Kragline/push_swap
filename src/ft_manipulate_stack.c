@@ -6,7 +6,7 @@
 /*   By: armarake <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 14:14:27 by armarake          #+#    #+#             */
-/*   Updated: 2025/03/04 15:30:33 by armarake         ###   ########.fr       */
+/*   Updated: 2025/03/08 01:51:12 by armarake         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,12 @@ int	is_empty(t_stack *top)
 	return (ft_lstsize(top) == 0);
 }
 
-void	push(t_stack **top, int content)
+void	push(t_stack **top, int content, int index)
 {
 	t_stack	*new_node;
 
 	new_node = ft_lstnew(content);
+	new_node->index = index;
 	if (!new_node)
 		return ;
 	ft_lstadd_front(top, new_node);
@@ -51,7 +52,7 @@ int	pop(t_stack **top)
 	return (popped_value);
 }
 
-int	peak(t_stack *top)
+int	top(t_stack *top)
 {
 	if (is_empty(top))
 		return (0);
