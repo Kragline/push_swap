@@ -6,7 +6,7 @@
 /*   By: armarake <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 00:01:22 by armarake          #+#    #+#             */
-/*   Updated: 2025/03/08 02:06:40 by armarake         ###   ########.fr       */
+/*   Updated: 2025/03/08 02:42:09 by armarake         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	push(t_stack **top, int content, int index);
 void	push_back(t_stack **top, int content);
 int		pop(t_stack **top);
 int		top(t_stack *top);
-void	ft_print_stack(t_stack *top, char name);
+void	ft_print_stack(t_stack *top, char *name);
 void	swap_a(t_stack **top);
 void	swap_b(t_stack **top);
 void	swap_ab(t_stack **stack_a, t_stack **stack_b);
