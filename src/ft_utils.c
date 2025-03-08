@@ -6,7 +6,7 @@
 /*   By: armarake <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 22:20:57 by armarake          #+#    #+#             */
-/*   Updated: 2025/03/08 12:44:20 by armarake         ###   ########.fr       */
+/*   Updated: 2025/03/08 17:27:24 by armarake         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,15 @@ int	ft_sqrt(int content)
 	left = 1;
 	right = content;
 	result = 0;
-	while (left <= right) {
+	while (left <= right)
+	{
 		mid = left + (right - left) / 2;
 		if (mid <= content / mid)
 		{
 			result = mid;
 			left = mid + 1;
-		} else
+		}
+		else
 			right = mid - 1;
 	}
 	return (result);
