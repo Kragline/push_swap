@@ -6,7 +6,7 @@
 /*   By: armarake <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 13:01:38 by armarake          #+#    #+#             */
-/*   Updated: 2025/03/05 13:01:38 by armarake         ###   ########.fr       */
+/*   Updated: 2025/03/08 12:51:20 by armarake         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,6 @@ static void	make_butterfly(t_stack **stack_a, t_stack **stack_b)
 	}
 }
 
-static int	update(t_stack **stack_a, t_stack **stack_b)
-{
-	push_a(stack_a, stack_b);
-	return (ft_lstsize(*stack_b));
-}
-
 static void	final_push(t_stack **stack_a, t_stack **stack_b)
 {
 	int	max_pos;
@@ -63,23 +57,18 @@ static void	final_push(t_stack **stack_a, t_stack **stack_b)
 	while (*stack_b)
 	{
 		max_pos = max_position(*stack_b);
-		if (max_pos <= (stack_len / 2))
+		if (max_pos <= (stack_len / 2) && max_pos != 0)
 		{
-			while (max_pos != 0)
-			{
-				rotate_b(stack_b);
-				max_pos = max_position(*stack_b);
-			}
+			rotate_b(stack_b);
+			max_pos = max_position(*stack_b);
 		}
-		else
+		else if (max_pos != 0)
 		{
-			while (max_pos != 0)
-			{
-				reverse_rotate_b(stack_b);
-				max_pos = max_position(*stack_b);
-			}
+			reverse_rotate_b(stack_b);
+			max_pos = max_position(*stack_b);
 		}
-		stack_len = update(stack_a, stack_b);
+		push_a(stack_a, stack_b);
+		stack_len = ft_lstsize(*stack_b);
 	}
 }
 

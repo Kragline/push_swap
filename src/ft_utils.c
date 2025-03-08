@@ -6,7 +6,7 @@
 /*   By: armarake <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 22:20:57 by armarake          #+#    #+#             */
-/*   Updated: 2025/03/07 22:20:57 by armarake         ###   ########.fr       */
+/*   Updated: 2025/03/08 12:44:20 by armarake         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,22 +36,30 @@ void	ft_error(t_stack **stack, int argc, char *args[])
 	exit(1);
 }
 
-int	ft_sqrt(int nb)
+int	ft_sqrt(int content)
 {
-	int	i;
+	int	left;
+	int	right;
+	int	mid;
+	int	result;
 
-	i = 1;
-	if (nb == 1)
-		return (1);
-	else if (nb < 0)
-		return (0);
-	while (i * i < nb)
-	{
-		if (i >= 46341)
-			return (0);
-		i++;
+	if (content < 0)
+		return (-1);
+	if (content == 0 || content == 1)
+		return (content);
+	left = 1;
+	right = content;
+	result = 0;
+	while (left <= right) {
+		mid = left + (right - left) / 2;
+		if (mid <= content / mid)
+		{
+			result = mid;
+			left = mid + 1;
+		} else
+			right = mid - 1;
 	}
-	return (i - 1);
+	return (result);
 }
 
 static int	max_content(t_stack *stack)

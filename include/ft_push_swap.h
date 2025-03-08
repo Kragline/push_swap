@@ -6,7 +6,7 @@
 /*   By: armarake <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 00:01:22 by armarake          #+#    #+#             */
-/*   Updated: 2025/03/08 02:42:09 by armarake         ###   ########.fr       */
+/*   Updated: 2025/03/08 12:29:07 by armarake         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	reverse_rotate_b(t_stack **top);
 void	reverse_rotate_ab(t_stack **stack_a, t_stack **stack_b);
 void	ft_free_tab(char **tab);
 void	ft_error(t_stack **stack, int argc, char *args[]);
-int		ft_sqrt(int nb);
+int		ft_sqrt(int content);
 int		max_position(t_stack *stack);
 int		arg_is_valid(t_stack **stack, char *arg, int argc, char *args[]);
 int		is_sorted(t_stack *stack);
