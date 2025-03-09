@@ -6,7 +6,7 @@
 /*   By: armarake <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 15:13:51 by armarake          #+#    #+#             */
-/*   Updated: 2025/03/08 01:40:59 by armarake         ###   ########.fr       */
+/*   Updated: 2025/03/09 17:23:52 by armarake         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,18 @@ static int	push_from_to(t_stack **from, t_stack **to)
 	return (1);
 }
 
-void	push_a(t_stack **stack_a, t_stack **stack_b)
+void	push_a(t_stack **stack_a, t_stack **stack_b, int print)
 {
 	if (!push_from_to(stack_b, stack_a))
 		return ;
-	ft_putendl_fd("pa", 1);
+	if (print)
+		ft_putendl_fd("pa", 1);
 }
 
-void	push_b(t_stack **stack_a, t_stack **stack_b)
+void	push_b(t_stack **stack_a, t_stack **stack_b, int print)
 {
 	if (!push_from_to(stack_a, stack_b))
 		return ;
-	ft_putendl_fd("pb", 1);
+	if (print)
+		ft_putendl_fd("pb", 1);
 }

@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_main.c                                          :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: armarake <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/01 00:01:02 by armarake          #+#    #+#             */
-/*   Updated: 2025/03/09 17:42:09 by armarake         ###   ########.fr       */
+/*   Created: 2025/01/29 13:36:07 by armarake          #+#    #+#             */
+/*   Updated: 2025/03/09 15:07:29 by armarake         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_push_swap.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-int	main(int argc, char *argv[])
-{
-	t_stack	*stack_a;
-	t_stack	*stack_b;
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
 
-	if (argc == 1)
-		return (0);
-	stack_a = NULL;
-	stack_b = NULL;
-	initialize_stack(&stack_a, argc, argv);
-	if (!is_sorted(stack_a))
-		sort_stack(&stack_a, &stack_b);
-	ft_lstclear(&stack_a);
-	ft_lstclear(&stack_b);
-	return (0);
-}
+# include <stdlib.h>
+# include <unistd.h>
+# include <fcntl.h>
+# include <sys/types.h>
+
+char	*get_next_line(int fd);
+size_t	gnl_strlen(const char *s);
+char	*gnl_strchr(const char *s, int c);
+char	*gnl_strjoin(char *s1, char *s2);
+char	*gnl_substr(char const *s, unsigned int start, size_t len);
+
+#endif

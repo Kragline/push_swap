@@ -6,7 +6,7 @@
 /*   By: armarake <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 16:31:02 by armarake          #+#    #+#             */
-/*   Updated: 2025/03/03 17:14:12 by armarake         ###   ########.fr       */
+/*   Updated: 2025/03/09 16:33:36 by armarake         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,25 +33,28 @@ static int	reverse_rotate(t_stack **top)
 	return (1);
 }
 
-void	reverse_rotate_a(t_stack **top)
+void	reverse_rotate_a(t_stack **top, int print)
 {
 	if (!reverse_rotate(top))
 		return ;
-	ft_putendl_fd("rra", 1);
+	if (print)
+		ft_putendl_fd("rra", 1);
 }
 
-void	reverse_rotate_b(t_stack **top)
+void	reverse_rotate_b(t_stack **top, int print)
 {
 	if (!reverse_rotate(top))
 		return ;
-	ft_putendl_fd("rrb", 1);
+	if (print)
+		ft_putendl_fd("rrb", 1);
 }
 
-void	reverse_rotate_ab(t_stack **stack_a, t_stack **stack_b)
+void	reverse_rotate_ab(t_stack **stack_a, t_stack **stack_b, int print)
 {
 	if (ft_lstsize(*stack_a) < 2 || ft_lstsize(*stack_b) < 2)
 		return ;
 	reverse_rotate(stack_a);
 	reverse_rotate(stack_b);
-	ft_putendl_fd("rrr", 1);
+	if (print)
+		ft_putendl_fd("rrr", 1);
 }

@@ -6,7 +6,7 @@
 /*   By: armarake <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 14:38:21 by armarake          #+#    #+#             */
-/*   Updated: 2025/03/03 16:28:01 by armarake         ###   ########.fr       */
+/*   Updated: 2025/03/09 16:31:40 by armarake         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,25 +24,28 @@ static int	swap(t_stack **top)
 	return (1);
 }
 
-void	swap_a(t_stack **top)
+void	swap_a(t_stack **top, int print)
 {
 	if (!swap(top))
 		return ;
-	ft_putendl_fd("sa", 1);
+	if (print)
+		ft_putendl_fd("sa", 1);
 }
 
-void	swap_b(t_stack **top)
+void	swap_b(t_stack **top, int print)
 {
 	if (!swap(top))
 		return ;
-	ft_putendl_fd("sb", 1);
+	if (print)
+		ft_putendl_fd("sb", 1);
 }
 
-void	swap_ab(t_stack **stack_a, t_stack **stack_b)
+void	swap_ab(t_stack **stack_a, t_stack **stack_b, int print)
 {
 	if (ft_lstsize(*stack_a) < 2 || ft_lstsize(*stack_b) < 2)
 		return ;
 	swap(stack_a);
 	swap(stack_b);
-	ft_putendl_fd("ss", 1);
+	if (print)
+		ft_putendl_fd("ss", 1);
 }

@@ -6,7 +6,7 @@
 /*   By: armarake <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 15:42:14 by armarake          #+#    #+#             */
-/*   Updated: 2025/03/03 16:33:37 by armarake         ###   ########.fr       */
+/*   Updated: 2025/03/09 16:34:12 by armarake         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,25 +27,28 @@ static int	rotate(t_stack **top)
 	return (1);
 }
 
-void	rotate_a(t_stack **top)
+void	rotate_a(t_stack **top, int print)
 {
 	if (!rotate(top))
 		return ;
-	ft_putendl_fd("ra", 1);
+	if (print)
+		ft_putendl_fd("ra", 1);
 }
 
-void	rotate_b(t_stack **top)
+void	rotate_b(t_stack **top, int print)
 {
 	if (!rotate(top))
 		return ;
-	ft_putendl_fd("rb", 1);
+	if (print)
+		ft_putendl_fd("rb", 1);
 }
 
-void	rotate_ab(t_stack **stack_a, t_stack **stack_b)
+void	rotate_ab(t_stack **stack_a, t_stack **stack_b, int print)
 {
 	if (ft_lstsize(*stack_a) < 2 || ft_lstsize(*stack_b) < 2)
 		return ;
 	rotate(stack_a);
 	rotate(stack_b);
-	ft_putendl_fd("rr", 1);
+	if (print)
+		ft_putendl_fd("rr", 1);
 }
