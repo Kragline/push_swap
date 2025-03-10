@@ -6,7 +6,7 @@
 /*   By: armarake <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/09 14:26:24 by armarake          #+#    #+#             */
-/*   Updated: 2025/03/10 15:14:58 by armarake         ###   ########.fr       */
+/*   Updated: 2025/03/10 16:35:31 by armarake         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,6 @@ static void	execute_command(t_stack **stack__a, t_stack **stack__b, char *input)
 
 static int	valid_input(char *input)
 {
-	if (!input)
-		return (0);
 	if (ft_strncmp("rra\n", input, 4) == 0
 		|| ft_strncmp("rrb\n", input, 4) == 0
 		|| ft_strncmp("rrr\n", input, 4) == 0
@@ -64,6 +62,8 @@ static void	read_input(t_stack **stack__a, t_stack **stack__b)
 	while (1)
 	{
 		input = get_next_line(0);
+		if (!input)
+			break ;
 		if (valid_input(input))
 			execute_command(stack__a, stack__b, input);
 		else
@@ -78,6 +78,17 @@ static void	read_input(t_stack **stack__a, t_stack **stack__b)
 	}
 }
 
+static int	check_args(char *argv[])
+{
+	while (*argv)
+	{
+		if (!(**argv))
+			return (0);
+		argv++;
+	}
+	return (1);
+}
+
 int	main(int argc, char *argv[])
 {
 	t_stack	*stack__a;
@@ -85,7 +96,7 @@ int	main(int argc, char *argv[])
 
 	if (argc == 1)
 		return (0);
-	if (ft_strncmp(argv[0], "", 1))
+	if (!check_args(argv))
 	{
 		ft_putendl_fd("Error", 2);
 		return (1);

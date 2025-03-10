@@ -1,4 +1,5 @@
 NAME = push_swap
+CHECKER = checker
 
 CC = cc
 
@@ -33,9 +34,10 @@ clean:
 fclean: clean
 	make -C libft fclean
 	rm -f $(NAME)
+	rm -f $(CHECKER)
 
 bonus: $(HEADER_DIR)/ft_push_swap.h $(GNL_DIR)/get_next_line.h $(LIBFT) $(SRCS) $(BONUS_MAIN) $(GNL)
-	$(CC) $(CCFLAGS) -I$(HEADER_DIR) -I$(GNL_DIR) $(BONUS_MAIN) $(SRCS) $(LIBFT) $(GNL) -o checker
+	$(CC) $(CCFLAGS) -I$(HEADER_DIR) -I$(GNL_DIR) $(BONUS_MAIN) $(SRCS) $(LIBFT) $(GNL) -o $(CHECKER)
 
 re: fclean all
 
