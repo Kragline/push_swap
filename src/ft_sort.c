@@ -6,7 +6,7 @@
 /*   By: armarake <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 13:01:38 by armarake          #+#    #+#             */
-/*   Updated: 2025/03/09 16:35:11 by armarake         ###   ########.fr       */
+/*   Updated: 2025/03/10 15:03:48 by armarake         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 int	is_sorted(t_stack *stack)
 {
+	if (is_empty(stack))
+		return (0);
 	while (stack)
 	{
 		if (stack->next && stack->content > stack->next->content)
