@@ -3,7 +3,7 @@ CHECKER = checker
 
 CC = cc
 
-CCFLAGS = -Wall -Wextra -Werror -fsanitize=address
+CCFLAGS = -Wall -Wextra -Werror
 
 LIBFT = libft/libft.a
 
@@ -12,8 +12,7 @@ HEADER_DIR = include
 FILENAMES = manipulate_stack print_utils swap push rotate reverse_rotate \
 			utils valid_utils sort init
 
-PREFIX_FILENAMES = $(addprefix src/ft_, $(FILENAMES))
-SRCS = $(addsuffix .c, $(PREFIX_FILENAMES))
+SRCS = $(addsuffix .c, $(addprefix src/ft_, $(FILENAMES)))
 MANDATORY_MAIN = src/ft_main.c
 
 GNL_DIR = gnl
