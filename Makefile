@@ -3,7 +3,7 @@ CHECKER = checker
 
 CC = cc
 
-CCFLAGS = -Wall -Wextra -Werror
+CCFLAGS = -Wall -Wextra -Werror -fsanitize=address
 
 LIBFT = libft/libft.a
 
@@ -36,7 +36,9 @@ fclean: clean
 	rm -f $(NAME)
 	rm -f $(CHECKER)
 
-bonus: $(HEADER_DIR)/ft_push_swap.h $(GNL_DIR)/get_next_line.h $(LIBFT) $(SRCS) $(BONUS_MAIN) $(GNL)
+bonus: $(CHECKER)
+
+$(CHECKER): $(HEADER_DIR)/ft_push_swap.h $(GNL_DIR)/get_next_line.h $(LIBFT) $(SRCS) $(BONUS_MAIN) $(GNL)
 	$(CC) $(CCFLAGS) -I$(HEADER_DIR) -I$(GNL_DIR) $(BONUS_MAIN) $(SRCS) $(LIBFT) $(GNL) -o $(CHECKER)
 
 re: fclean all
